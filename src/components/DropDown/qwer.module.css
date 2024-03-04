@@ -1,0 +1,39 @@
+.dropDownMenu{
+	background: white;
+	border: none;
+	color: rgba(135, 135, 135, 100);
+	font-size: 24px;
+	height: 100%;
+	font-weight: 800;
+
+}
+.menu {
+	background: #A4D3FF;
+	border-radius: 8px;
+	position: absolute;
+	list-style: none;
+	top: 15px;
+	width: 150px;
+	text-align: center;
+	box-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+	opacity: 0;
+	visibility: hidden;
+	transform: translateY(-20px);
+	transition: opacity 0.4s ease, transform 0.4s ease, visibility 0.4s;
+	padding: 10px;
+	z-index: 10;
+}
+.menu > li{
+	padding-top: 5px;
+	border-bottom: 2px solid rgba(135, 135, 135, 100);
+}
+.menu > li:last-child{
+	border: none;
+}
+
+
+.active {
+	opacity: 1;
+	visibility: visible;
+	transform: translateY(0);
+}
