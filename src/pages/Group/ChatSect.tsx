@@ -38,16 +38,17 @@ const ChatSect=()=>{
         // 채팅 목록을 state로 만들고 가져온 벨류에 따라서 스테이트 변경
         // 변경 과정은 벨류에 따라 백에 보내는 api가 달라지고 요청후 받는
         // 데이터를 state에 반영한다.
-        const value =e.target.getAttribute('value');
+        const value =e.currentTarget.getAttribute('value');
         setSelect(value);
         console.log(value);
         axios
           .get(
-            `/api/group/${value}`,
+            `http://localhost:8080/api/group/${value}`,
             {withCredentials:true,}
           )
           .then((response)=>{
-              console.log(response.data);
+              console.log(response.data.chats);
+							setChatList(response.data.chats);
 
               //백에서 조회한 채팅방을 객체 형태로 넘겨준다
               //setChatList(response.data);
@@ -83,14 +84,14 @@ const ChatSect=()=>{
     const ChatBox =()=>{
 			return (
 				<>
-					{tempChatRoom.map(({ index, title, hashtag, lastChat }) => (
+					{chatList.map(({ index, title, hashtag, lastChat }) => (
 						<Box key={index} onClick={detailChat}>
 							<div className="title">
 								<h3>{title}</h3>
 							</div>
 							<div className="sub">
 								<span>{
-                    hashtag.map((value)=>{
+                    hashtag.map((value:string)=>{
                      return "#" + value + " "
                 })
                 }</span>
