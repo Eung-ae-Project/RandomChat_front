@@ -24,21 +24,109 @@
     z-index: 101;
     background: white;
     opacity: 1;
-    width: 20vw;
-    height: 80vh;
-    border-radius: 30px;
+    width: 30vw;
+    height: 850px;
+    border-radius: 20px;
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 450px;
+    min-width: 340px;
+}
+.inputForm{
+    display: flex;
+    flex-direction: column;
+    width: 70%;
 
+}
+.inputForm input{
+    border: 2px solid #A4D3FF;
+    border-radius: 5px;
+}
+.inputForm input:focus{
+    outline: none;
 }
 .chatImage{
     margin-top: 30px;
     position: relative;
-    width: 40%;
+    width: 60%;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
 }
 .chatImage > img{
-    width: 100%;
-    border-radius: 70px;
+    border-radius: 60px;
     border: 1px solid rgba(135, 135, 135, 100);
     overflow: hidden;
+}
+.formTitle{
+    margin-bottom: 20px;
+    height: 45px;
+    font-size: 28px;
+    padding-left: 5px;
+}
+.formDescription{
+    height: 150px;
+    scroll-behavior: auto;
+    font-size: 24px;
+    margin-bottom: 20px;
+    border: 2px solid #A4D3FF;
+    font-family: 'BM HANNA_TTF', Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    padding-left: 5px;
+    border-radius: 5px;
+}
+.formDescription:focus{
+    outline: none;
+}
+.tagLine{
+    padding-left: 5px;
+    display: flex;
+    justify-content: space-between;
+    height:  45px;
+    margin-bottom: 20px;
+    font-size: 26px;
+}
+.tagLine input{
+    width: 70%;
+}
+.tagLine select{
+    padding-left: 5px;
+    border: 2px solid #A4D3FF;
+    width: 20%;
+    border-radius: 5px;
+}
+.tagLine select:focus{
+    outline: none;
+}
+.publicLine{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 15px;
+    height: 45px;
+}
+.publicLine input{
+    padding-left: 5px;
+}
+.publicLine div{
+    display: flex;
+    align-items: center;
+}
+.buttonArea{
+    display: flex;
+    justify-content: end;
+}
+.formButton{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200%;
+    width: 37%;
+    font-size: 18px;
+    color: white;
+    font-weight: 1000;
+    background: #A4D3FF;
+    border: none;
+    border-radius: 5px;
+
 }

@@ -26,23 +26,30 @@ const CreateChat = () => {
 				<div className={styles.modal}>
 					<div className={styles.chatImage}>
 						<img src="src/assets/profile.png" alt="chatImage"></img>
-						<form>
-							<input type="text" placeholder="채팅방 이름" />
-							<input type="text" placeholder="채팅방 설명" />
-							<input type="text" placeholder="태그" />
-							<select>
-								<option value="20">20</option>
-								<option value="50">50</option>
-								<option value="100">100</option>
-							</select>
-							<input type="radio" value="공개" />
-							<input type="radio" value="비공개" />
-							<input type="number"/>
-							<button>채팅방 생성</button>
-						</form>
-
-
 					</div>
+					<form className={styles.inputForm}>
+							<input type="text" placeholder="채팅방 이름" className={styles.formTitle}/>
+						<textarea placeholder="채팅방 설명" className={styles.formDescription}></textarea>
+						<div className={styles.tagLine}>
+								<input type="text" placeholder="태그" className={styles.tagLine} />
+								<select>
+									<option value="20">20</option>
+									<option value="50">50</option>
+									<option value="100">100</option>
+								</select>
+							</div>
+							<div className={styles.publicLine}>
+								<div>
+									<label><input type="radio" name="public" value="공개" />공개</label>
+									<label><input type="radio" name="public" value="비공개" />비공개</label>
+								</div>
+								<input type="text" />
+							</div>
+						<div className={styles.buttonArea}>
+							<button className={styles.formButton}>채팅방 생성</button>
+						</div>
+
+					</form>
 				</div>
 			</div>}
 		</>
