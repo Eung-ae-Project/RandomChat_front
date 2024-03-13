@@ -26,12 +26,12 @@ const Private:FC =()=>{
 							<label><input type="radio" name="MBTI2" value="N" />N</label>
 						</div>
 						<div>
-							<label><input type="radio" name="MBTI1" value="T" />T</label>
-							<label><input type="radio" name="MBTI1" value="F" />F</label>
+							<label><input type="radio" name="MBTI3" value="T" />T</label>
+							<label><input type="radio" name="MBTI3" value="F" />F</label>
 						</div>
 						<div>
-							<label><input type="radio" name="MBTI1" value="J" />J</label>
-							<label><input type="radio" name="MBTI1" value="P" />P</label>
+							<label><input type="radio" name="MBTI4" value="J" />J</label>
+							<label><input type="radio" name="MBTI4" value="P" />P</label>
 						</div>
 					</Mbti>
 					<label><input type="checkbox" name="Random" value="Random" />완전 랜덤으로 할래요!</label>

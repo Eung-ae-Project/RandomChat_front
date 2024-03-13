@@ -1,8 +1,6 @@
-import React, { ChangeEvent, MouseEvent, useState } from "react";
+import React, { ChangeEvent, MouseEvent, useCallback, useEffect, useState } from "react";
 import { Box, ChatBoxSect, ChatList, ChatOption, ChatSection, LeftBar, Li, RightBar } from "@pages/Group/styles";
 import axios from "axios";
-import { faCaretDown, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import DropDown from "@components/DropDown/DropDown";
 import CreateChat from "@components/CreateChat/CreateChat";
 
@@ -10,6 +8,29 @@ const ChatSect=()=>{
 
     const [chatList,setChatList] = useState([]);
     const [select,setSelect] = useState('all');
+			useEffect(() => {
+				axios
+					.get(
+						`http://localhost:8080/api/group/${select}`,
+						{withCredentials:true,}
+					)
+					.then((response)=>{
+						console.log(response.data.chats);
+						setChatList(response.data.chats);
+
+						//백에서 조회한 채팅방을 객체 형태로 넘겨준다
+						//setChatList(response.data);
+
+						console.log("성공..");
+					})
+					.catch((error)=>{
+						console.dir(error);
+					})
+			}, []);
+
+
+
+
     const category = [
         {value:"all" , text:"전체채팅방"},
         {value:"normal" , text:"일반"},
@@ -33,6 +54,7 @@ const ChatSect=()=>{
         {value:"recentChat",label:"최근 대화순"},
         {value:"numberOfPeople",label:"인원순"},
     ]
+
     const loadChat=(e:any)=>{
         // 벨류값 참고해서 벨류 값에 따라 db에 가져올 데이터가 달라짐
         // 채팅 목록을 state로 만들고 가져온 벨류에 따라서 스테이트 변경
@@ -43,7 +65,7 @@ const ChatSect=()=>{
         console.log(value);
         axios
           .get(
-            `http://localhost:8080/api/group/${value}`,
+            `http://localhost:8080/api/group/${select}`,
             {withCredentials:true,}
           )
           .then((response)=>{
@@ -70,14 +92,15 @@ const ChatSect=()=>{
     const deActiveStyle = {
         color: 'rgba(135, 135, 135, 100)',
     }
-    const CategoryList = () => {
-        return(
+    const CategoryList = useCallback(() => {
+			return(
             <>{category.map(({value,text})=>(
                 <Li key={value} onClick={loadChat} value={value} style={select==value ? activeStyle:deActiveStyle} >{text}</Li>
             )) }
         </>
         )
-    }
+    },[select])
+
     const detailChat=()=>{
         console.log("!!!!")
     }
@@ -102,7 +125,6 @@ const ChatSect=()=>{
 				</>
 			);
 		}
-
     return (
 			<ChatSection>
 				<ChatList className="ChatList">
