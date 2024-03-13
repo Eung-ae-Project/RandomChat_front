@@ -9,7 +9,7 @@ export const Head = styled.ul`
     font-size: 35px;
     margin:0;
     padding: 0;
-    
+    position: relative;
     font-style: normal;
     & > :first-of-type {
         /* 첫 번째 자식 요소에 대한 스타일 */

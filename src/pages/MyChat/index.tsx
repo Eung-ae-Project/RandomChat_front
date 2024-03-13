@@ -9,8 +9,8 @@ const MyChat:FC =()=>{
 			<Wrapper>
 				<Header/>
 				<Main>
-					<LeftSect>1</LeftSect>
-					<RightSect>2</RightSect>
+					<LeftSect></LeftSect>
+					<RightSect>텅~</RightSect>
 				</Main>
 			</Wrapper>
 
