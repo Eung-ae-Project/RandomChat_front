@@ -1,11 +1,20 @@
 import { FC } from "react";
 import Header from "@layouts/Header";
+import { LeftSect, Main, RightSect, Wrapper } from "@pages/MyChat/styles";
+import { RightBar } from "@pages/Group/styles";
 
 const MyChat:FC =()=>{
 	return (
 		<>
-			<Header/>
-			<h1>내 채팅</h1>
+			<Wrapper>
+				<Header/>
+				<Main>
+					<LeftSect>1</LeftSect>
+					<RightSect>2</RightSect>
+				</Main>
+			</Wrapper>
+
+
 		</>
 	);
 }
